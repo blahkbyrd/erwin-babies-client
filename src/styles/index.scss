@@ -1,0 +1,82 @@
+@import "./variables";
+@import "./mediaQuery";
+
+@import './pages';
+@import "./forms";
+@import "./header";
+@import "./footer";
+@import "./card";
+@import "./menu";
+@import "./userPage";
+@import "./button";
+@import "./image";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $font-family;
+    font-size: 1vw;
+    background-color: lighten($secondary-grey-light, 10%);
+    //background-color: aqua;
+    background-image: url('../images/bg.svg');
+    background-size:185vmax;
+    background-repeat:repeat-y;
+    background-position:-40px -20px;
+    
+}
+
+a {
+    text-decoration: none;
+    color: $link-color-dark;
+    font-weight: 600;
+}
+
+.loading-ball{
+    position: relative;
+    color:$secondary-dark;
+    font-size: $title-fs;
+    width:fit-content;
+    height: fit-content;
+    transform: translateX(50%);
+}
+.ball {
+    animation: roll 10s infinite alternate-reverse linear;
+
+}
+.thread{
+    position: absolute;
+    content:"";
+    width: 10px;
+    top:60%;
+    left: 20%;
+    animation:  thread 10s infinite alternate-reverse linear;
+    // transform: translate(-50%, -50%);
+    border-bottom: 4px solid $secondary-dark
+}
+
+.not-implemented {
+    display:none;
+}
+
+@keyframes roll {
+    from {
+        transform:  translateX(0) rotate(0deg);
+    }
+    to {
+        transform:  translateX(100vw) rotate(720deg);
+    }
+}
+@keyframes thread {
+    from {
+        width: 0;
+        transform: translate(0) rotate(0);
+    }
+    to {
+        width: 100vw;
+        transform: translate(0) rotate(0);
+    }
+}

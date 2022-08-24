@@ -1,0 +1,90 @@
+/*=======USER IMAGE=======*/
+img{
+    max-width: 500px;
+    max-height: 500px;
+}
+.profile {
+    width: 100%;
+    padding: $small-padding;
+    display: flex;
+    align-items: center;
+}
+.user-profile {
+    width: 20rem;
+    object-fit: cover;
+    margin: $small-margin;
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 8vw;
+    height: 8vw;
+    &.in-card{
+        width:5rem;
+        height: 5rem;
+    }
+    &.error {
+        width: 10rem;
+        height: 10rem;
+    }
+}
+
+/*=======ALBUM IMAGES=======*/
+
+// image container
+.image-post-container {
+    grid-column: 1/7;
+    grid-row: 3/7;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $small-padding;
+    justify-content: center;
+}
+
+.album-image{
+    width: 20rem;
+    max-width: 100%;
+    height: 20rem;
+    object-fit: cover;
+
+    &.error {
+        width: 10rem;
+        height: 10rem;
+    }
+}
+
+/*=======PREVIEW IMAGES=======*/
+
+// album preview
+.images-to-upload-container {
+    margin: $small-margin;
+    display: flex;
+    flex-direction: column;
+    gap: $small-padding;
+}
+.upload-image-container {
+    display: flex;
+    gap:$small-padding;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    img{
+        width:clamp(200px, 40vw, 500px);
+        height: auto;
+    }
+}
+// profile preview
+.validate-upload-image{
+    width: 80%;
+    margin: auto;
+    background-color: $primary-Xtralight;
+    padding-block: $large-padding;
+    border: 3px solid $primary-color;
+   display: flex;
+   flex-direction: column;
+    align-items: center;
+    gap:$base-margin;
+
+    #preview-profile{
+        width: 20rem;
+        height: 20rem;
+    }
+}

@@ -1,0 +1,129 @@
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: $xs-margin;
+    background-color: lighten($secondary-color, 30%);
+    margin-block: $large-margin;
+    margin-inline: auto;
+    padding: $small-padding;
+    border-radius: 15px;
+    width: 80%;
+    min-width: 50%;
+    h1 {
+        text-align: center;
+        font-size: $subtitle-fs;
+        color: $text-dark;
+    }
+    img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+.register-form,
+.login-form,
+.contact-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.left,
+.right,
+.middle {
+    margin: auto;
+    input {
+        margin-block: $xs-margin;
+    }
+}
+
+.left,
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: $xs-margin;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-input {
+    background-color: $primary-Xtralight;
+    padding-inline: $base-padding;
+    padding-block: $small-padding;
+    margin: $small-margin;
+    font-size: $button-fs-medium;
+    color: $text-dark;
+}
+
+
+.comment-form {
+    width: 100%;
+    border-radius: 5px;
+    padding: $small-padding;
+    form {
+        display: flex;
+        gap: $small-margin;
+        align-items: center;
+        justify-content: space-between;
+    }
+    input {
+        line-height: 1rem;
+        height: 2rem;
+        flex: 2;
+        border-radius: 5px;
+        background-color: $primary-light;
+        color: $text-dark;
+    }
+}
+
+.error-container {
+    background-color: $text-light;
+    border-radius: 5px;
+    p {
+        padding: $small-padding;
+        text-align: center;
+        font-size: $text-fs;
+
+        &.valid {
+            color: $accent-green;
+        }
+        &.invalid {
+            color: $accent-red;
+        }
+    }
+}
+
+
+.validation-popup, .validate-upload-image {
+    position: fixed;
+    z-index: 100;
+    transform: translate(-50%);
+    top: 30%;
+    margin: 0 auto;
+    left: 50%;
+
+    h1 {
+        font-size: $button-fs-large;
+    }
+
+    .input-invisible {
+        display: none;
+    }
+
+    p {
+        text-align: center;
+        font-size: $text-fs;
+    }
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// media queries
+.icon{
+    font-size: $text-fs;
+}

@@ -1,0 +1,24 @@
+.page {
+    margin-top: 10rem;
+    margin-bottom: 6rem;
+
+    .info {
+        font-size: $large-text-fs;
+        text-align: center;
+        color: $text-dark;
+    }
+    h1 {
+        padding-inline: $large-padding;
+        font-size: $subtitle-fs;
+    }
+}
+
+// meida queries
+
+
+.message-to-user {
+    p {
+        text-align: center;
+        font-size: $text-fs;
+    }
+}

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
+// color
+$primary-color: #FF1946;
+$primary-dark: #c4001f;
+$primary-light: #f6e6e7;
+$primary-Xtralight: #f2eaeb;
+$secondary-color : #00b7ff;
+$secondary-dark:#045f8d;
+$secondary-light: #6ae9ff;
+$secondary-Xtralight: #b8ecf5;
+
+$text-light: lighten($secondary-color, 60%);
+$text-dark: darken($secondary-color, 50%);
+
+$link-color-dark:darken($primary-dark, 20%);
+$link-color-light:lighten($primary-light, 20%);
+
+$accent-red:#ff93a9;
+$accent-green: #69B324;
+
+$grey: #2922247a;
+$grey-light: lighten($grey, 60%);
+$grey-dark: darken(#514a4c, 50%);
+
+
+$secondary-grey: #282c2e7a;
+$secondary-grey-light: lighten(#505557, 50%);
+$secondary-grey-dark: #000003;
+
+
+// font
+$text-fs: 1.2rem;
+$small-text-fs : 1rem; 
+$large-text-fs : 1.5rem; 
+
+$icon-fs :2rem;
+$title-fs: 2.5rem;
+$subtitle-fs:1.8rem;
+$logo-fs: 3rem;
+
+$button-fs-small: 0.9rem;
+$button-fs-medium: 1rem;
+$button-fs-large: 1.3rem;
+
+// family
+$font-family: 'Changa', sans-serif;
+
+
+// blanck spaces 
+$xs-padding:0.2rem;
+$small-padding: 0.5rem;
+$base-padding: 0.75rem;
+$large-padding: 1rem;
+$xl-padding: 1.5rem;
+
+$xs-margin: 0.4rem;
+$small-margin: 0.75rem;
+$base-margin: 1rem;
+$large-margin: 1.5rem;
+$xl-margin: 2rem;

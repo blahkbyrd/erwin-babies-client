@@ -1,0 +1,15 @@
+.footer {
+    background-color: lighten($secondary-grey-light, 10%);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+     a{
+        display: inline-block;
+        width: 100%;
+        font-size: $large-text-fs;
+        padding-block: $small-padding;
+        margin-bottom: $base-margin;
+        text-align: center; 
+     }
+}

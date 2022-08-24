@@ -1,0 +1,163 @@
+@media (min-width: 440px) and (max-width: 680px) {
+    .logo {
+        display: none;
+    }
+    .mobile-logo {
+        width: 5rem;
+        height: 5rem;
+        border: 3px solid $primary-color;
+        border-radius: 50%;
+        cursor: pointer;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        font-family: "Caveat", cursive;
+        #logo-erwin,
+        #logo-babies {
+            text-align: center;
+            margin-block: 0;
+            padding-block: 0;
+        }
+        #logo-erwin {
+            color: $secondary-dark;
+            grid-row: 1/3;
+            grid-column: 1/3;
+            font-size: $logo-fs;
+        }
+        #logo-babies {
+            color: $primary-dark;
+            grid-row: 1;
+            grid-column: 2;
+            font-size: $title-fs;
+            margin-top: 20px;
+
+            transform: rotate(-5deg);
+        }
+    }
+}
+
+@media (min-width: 680px) {
+    .page {
+        margin-inline: $small-margin;
+    }
+    .post-container {
+        margin-inline: auto;
+        max-width: 80%;
+    }
+    .card {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .card-content {
+        grid-column: 1/7;
+        grid-row: 1/3;
+        display: grid;
+    }
+    .profile {
+        grid-column: 1/4;
+    }
+    .user {
+        font-size: $text-fs;
+    }
+    .title {
+        font-size: $title-fs;
+        grid-column: 4/6;
+        grid-row: 1/1;
+    }
+    p {
+        margin: $small-margin;
+        padding: $small-padding;
+    }
+    .content {
+        width: 50%;
+        font-size: $large-text-fs;
+        grid-column: 1/6;
+        grid-row: 2/4;
+    }
+    .commentary-content,
+    .commentary-creator {
+        font-size: $large-text-fs;
+    }
+    .navbar {
+        margin: $small-margin;
+
+        li {
+            font-size: $large-text-fs;
+        }
+    }
+    .logo {
+        cursor: pointer;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        font-family: "Caveat", cursive;
+        #logo-erwin,
+        #logo-babies {
+            margin-block: 0;
+            padding-block: 0;
+        }
+        #logo-erwin {
+            color: $secondary-dark;
+            grid-row: 1/3;
+            grid-column: 1/4;
+            font-size: $logo-fs;
+        }
+        #logo-babies {
+            color: $primary-dark;
+            grid-row: 2/3;
+            grid-column: 2;
+            font-size: $title-fs;
+            margin-top: 20px;
+            transform: rotate(-20deg);
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    .grid-user-container {
+        flex-direction: row;
+    }
+    .grid {
+        width: 40%;
+        margin: $base-margin;
+        .user-profile {
+            width: 10vw;
+            height: 10vw;
+        }
+    }
+    .name {
+        div {
+            font-size: $text-fs;
+        }
+    }
+    .register-form,
+    .login-form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(2px, 1fr));
+    }
+    input {
+        &:nth-child(1) {
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+        &:nth-child(2) {
+            grid-column: 2/3;
+            grid-row: 1/2;
+        }
+    }
+    .left {
+        grid-column: 1/2;
+    }
+    .middle {
+        grid-column: 1/3;
+        margin: auto;
+        grid-row: 2;
+    }
+    .right {
+        grid-column: 2/3;
+    }
+}
+
+@media (min-width: 1024px) {
+    .navbar ul,
+    .button-container {
+        flex-direction: row;
+    }
+}

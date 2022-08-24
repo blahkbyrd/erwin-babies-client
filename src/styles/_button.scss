@@ -1,0 +1,126 @@
+button,
+.close-button {
+    cursor: pointer;
+    width: fit-content;
+    padding: $small-padding;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: $button-fs-medium;
+    text-align: center;
+    transition: all 0.8s ease;
+    margin: 0 auto;
+    &:hover {
+        background-color: $primary-light;
+        color: $primary-dark;
+    }
+}
+
+.change-button {
+    background-color: $primary-light;
+    color: $text-dark;
+}
+.form-button {
+    margin: auto;
+    grid-column: 1/3;
+    grid-row: 2/3;
+    font-size: $button-fs-large;
+    padding-inline: $base-padding;
+    padding-block: $large-padding;
+}
+
+.popup-button {
+    color: $text-dark;
+    padding-block: $base-padding;
+}
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: $xs-padding;
+    align-items: center;
+}
+
+#button-yes {
+    background-color: $accent-green;
+}
+#button-no {
+    background-color: $accent-red;
+}
+
+#upload-btn {
+    background-color: $primary-light;
+    border: 2px dashed $primary-color;
+    color: $primary-dark;
+}
+
+.form-button,
+.popup-button {
+    background-color: $primary-dark;
+    color: $primary-light;
+}
+
+.btn-inactive {
+    display: none;
+}
+
+.close-button {
+    color: $text-dark;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-color: $accent-red;
+    padding: $xs-padding;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    line-height: 20px;
+}
+
+.sign-button {
+    min-width: 150px;
+    background-color: $primary-light;
+    color: $primary-dark;
+    font-size: $button-fs-large;
+    padding-inline: $small-padding;
+    padding-block: $large-padding;
+    margin-inline: $small-margin;
+    border: 1px solid $primary-dark;
+    &:hover {
+        color: $text-light;
+        background-color: $primary-dark;
+    }
+    &#active {
+        background-color: $primary-dark;
+        color: $text-light;
+        border: none;
+        &:hover {
+            background-color: $primary-light;
+            color: $primary-dark;
+        }
+    }
+    &.connected {
+        display: none;
+    }
+    &.connected {
+        display: inline-block;
+    }
+}
+
+.grid-button {
+    margin-inline: auto;
+    margin-block: $base-margin;
+    background-color: $primary-dark;
+    color: $text-light;
+    font-size: $button-fs-medium;
+    &:hover {
+        border: 1px solid $primary-dark;
+        background-color: $text-light;
+        color: $primary-dark;
+    }
+}
+//
+
+.change-profile-button {
+    grid-row: 1;
+    margin: $small-margin;
+}
