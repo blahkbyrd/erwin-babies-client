@@ -16,6 +16,7 @@ function AlbumWithImages(props) {
     const [toValidate, setToValidate] = useState(false);
     const [images, setImages] = useState('');
     const [isActive, setIsActive] = useState(false);
+    const [preview, setPreview] = useState(false);
 
     const [formData, setFormData] = useState({
         title: "",
@@ -45,6 +46,7 @@ function AlbumWithImages(props) {
             ]))
         })
         setToValidate(!toValidate)
+        setPreview(true);
     }
 
     const invalidateImage = () => {
@@ -64,8 +66,10 @@ function AlbumWithImages(props) {
 
         setTimeout(() => {
             navigate('/')
-            setIsActive(false)
+            setIsActive(false);
+            setPreview(false);
         }, 5000)
+
     }
 
     return (
@@ -87,7 +91,14 @@ function AlbumWithImages(props) {
                         </div>
                         : <button onClick={uploadFile} type='button' className='form-button' id="upload-btn">Ajouter des images</button>
                 }
-
+                {
+                    preview &&
+                    <div className='upload-image-container'>
+                        {images.filesUploaded.map(
+                            img => <img key={img.handle} src={img.url} alt="preview" />
+                        )}
+                    </div>
+                }
                 <input name="title" value={formData.title} onChange={onChange} type='text' placeholder="Titre de l'album" className="form-input" required={true} />
                 <textarea name="content" value={formData.content} onChange={onChange} cols={50} rows={10} type='text' placeholder="Votre texte..." className="form-input" />
                 <button type="submit" className='form-button'>envoyer</button>

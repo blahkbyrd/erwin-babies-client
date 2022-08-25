@@ -1,6 +1,6 @@
 import { useState } from "react";
-import defaultProfile from "./../images/footprint.svg";
 import ImageUploader from "./ImageUploader";
+
 function UserInfo(props) {
     const [show, setShow] = useState(false);
     const [picker,setPicker] = useState(false);

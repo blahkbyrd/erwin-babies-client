@@ -41,7 +41,7 @@ function LoginForm(props) {
         }
         if (status == "connected") {
             setClassName("valid");
-
+            console.log(user);
             setErrorMessage("Vous êtes connecté");
             setTimeout(
                 () => {

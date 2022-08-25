@@ -45,7 +45,7 @@ function ImageUploader(props) {
                 }
                 onError={(res) => alert(res)}
                 pickerOptions={{
-                    maxFiles: 3,
+                    maxFiles: 1,
                     accept: "image/*",
                     maxSize: 1 * 4000 * 4000
                 }}
