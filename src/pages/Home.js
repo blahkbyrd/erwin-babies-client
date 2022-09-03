@@ -6,17 +6,18 @@ import axios from "axios";
 
 import { displayAlbum } from '../features/albumSlice';
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Home(props) {
+    
 
     const dispatch = useDispatch();
     const {commentSuccess} = useSelector(state => state.comment);
-    const {liked} = useSelector(state=> state.album)
+    const {liked, message} = useSelector(state=> state.album)
 
     useEffect(() => {
         dispatch(displayAlbum());
-    }, [commentSuccess, liked])
+    }, [commentSuccess, liked, message])
 
     const sign = props.form;
     return (

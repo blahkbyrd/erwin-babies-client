@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 /*==== CONSTANT ====*/
-const API_URL_ALBUM = "https://erwin-babies-api.herokuapp.com/api/album/";
+const API_URL_ALBUM = "https://erwin-api.herokuapp.com/api/album/";
+const API_LOCAL = "http://localhost:5000"
 
 const config = (token) => {
     const headers = {
@@ -19,7 +20,7 @@ const initialState = {
     albumData: [],
     message: "",
     liked: false,
-    status:""
+    status: ""
 }
 /*==== ACTIONS ====*/
 
@@ -81,6 +82,20 @@ export const deleteAlbum = createAsyncThunk('album/deleteAlbum', async (data, th
     }
 })
 
+
+// update albums
+export const updateAlbum = createAsyncThunk('album/updateAlbum', async (data, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().user.user.token;
+        const id = thunkAPI.getState().user.user._id ? thunkAPI.getState().user.user._id : thunkAPI.getState().user.user.id;
+        const payload = await axios.put(`${API_URL_ALBUM}update-album/${id}`, data, config(token) )
+        return payload.data
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message);
+        return thunkAPI.rejectWithValue(message);
+    }
+})
+
 /*==== SLICE ====*/
 
 export const articleSlice = createSlice({
@@ -102,19 +117,19 @@ export const articleSlice = createSlice({
             .addCase(displayAlbum.fulfilled, (state, action) => {
                 state.loading = false;
                 state.albumData = action.payload.albums;
-                state.status=action.payload.status
+                state.status = action.payload.status
             })
             .addCase(displayAlbum.rejected, (state, action) => {
                 state.loading = false;
                 state.albumData = [];
-                state.message = action.payload.message;
+                state.message = action.payload;
             })
             .addCase(createAlbumWithImages.pending, (state) => { state.loading = true })
             .addCase(createAlbumWithImages.fulfilled, (state, action) => {
                 state.loading = false;
                 state.update = true;
                 state.message = action.payload.message;
-                state.status=action.payload.status
+                state.status = action.payload.status
             })
             .addCase(createAlbumWithImages.rejected, (state, action) => {
                 state.loading = false;
@@ -128,7 +143,7 @@ export const articleSlice = createSlice({
                 state.liked = !state.liked;
                 console.log(action.payload);
                 state.message = action.payload.message;
-                state.status=action.payload.status
+                state.status = action.payload.status
 
             })
             .addCase(likeAlbum.rejected, (state, action) => {
@@ -137,16 +152,27 @@ export const articleSlice = createSlice({
                 state.message = action.payload.message;
             })
             .addCase(deleteAlbum.pending, (state) => { state.loading = true })
-            .addCase(deleteAlbum.fulfilled, (state,action) => {
+            .addCase(deleteAlbum.fulfilled, (state, action) => {
                 state.loading = false
                 state.message = "deleted"
-                state.status=action.payload.status
-
+                state.status = action.payload.status
             })
             .addCase(deleteAlbum.rejected, (state) => {
                 state.loading = false;
                 state.message = "erreur";
             })
+            .addCase(updateAlbum.pending, (state) => { state.loading = true })
+            .addCase(updateAlbum.fulfilled, (state, action) => {
+                state.loading = false
+                state.message = "updated"
+                state.status = action.payload.status
+
+            })
+            .addCase(updateAlbum.rejected, (state) => {
+                state.loading = false;
+                state.message = "erreur";
+            })
+
 
     }
 })

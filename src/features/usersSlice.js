@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL = "https://erwin-babies-api.herokuapp.com/api/user/";
+const API_URL = "https://erwin-api.herokuapp.com/api/user/";
 const user = JSON.parse(localStorage.getItem('user'));
 
 const initialState = {

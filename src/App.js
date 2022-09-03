@@ -1,5 +1,6 @@
 // libraries
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import Footer from "./components/Footer";
 
 // components
@@ -11,27 +12,33 @@ import Home from "./pages/Home";
 import UserPage from "./pages/UserPage";
 
 // context
-import {PopupProvider} from "./PopupContecxt";
+import { PopupProvider } from "./PopupContecxt";
+import MaintenanceMode from "./components/special_components/MaintenanceMode";
 
 
 function App() {
-return (
+  const [isMaintenance, setIsMaintenance] = useState(true);
+  return (
 
     <PopupProvider>
       <div className="app">
-        <Router>
-          <Header/>
-          <Routes>
-            <Route path="/" element={<Home form="" />} />
-            <Route path="/sign-in" element={<Home form="login" />} />
-            <Route path="/sign-up" element={<Home form="register" />} />
-            <Route path="/page-personelle" element={<UserPage />} />
-            <Route path="/tableau-de-bord" element={<Dashboard />} />
-            <Route path="/page-de-mes-contacts" element={<FriendPage />} />
-            <Route path="/a-propos" element={<About />} />
-          </Routes>
-          <Footer />
-        </Router>
+        {
+          isMaintenance ? <MaintenanceMode /> :
+
+            <Router>
+              <Header />
+              <Routes>
+                <Route path="/" element={<Home form="" />} />
+                <Route path="/sign-in" element={<Home form="login" />} />
+                <Route path="/sign-up" element={<Home form="register" />} />
+                <Route path="/page-personelle" element={<UserPage />} />
+                <Route path="/tableau-de-bord" element={<Dashboard />} />
+                <Route path="/page-de-mes-contacts" element={<FriendPage />} />
+                <Route path="/a-propos" element={<About />} />
+              </Routes>
+              <Footer />
+            </Router>
+        }
       </div>
     </PopupProvider>
   );

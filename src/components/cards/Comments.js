@@ -12,6 +12,8 @@ function Comments(props) {
     const [comm, setComm] = useState()
     const [messageToUser, setMessageToUser] = useState('')
 
+    
+
     /*------- context ------*/
     const { isActivePopup, activePopup, changeAction } = useContext(popupContext)
 
@@ -38,7 +40,7 @@ function Comments(props) {
         if (comm.user != user.id || !user) setMessageToUser("Vous ne pouvez pas supprimer ce message");
         else {
             activePopup(true);
-            localStorage.setItem("comment-id", JSON.stringify(comments))
+            localStorage.setItem("elem-id", JSON.stringify(comments))
             changeAction("update-com")
         }
     };
@@ -46,7 +48,7 @@ function Comments(props) {
         if (comm.user != user.id || !user) setMessageToUser("Vous ne pouvez pas supprimer ce message");
         else {
             activePopup(true);
-            localStorage.setItem("comment-id", JSON.stringify(comments))
+            localStorage.setItem("elem-id", JSON.stringify(comments))
             changeAction("delete-com")
         }
     };

@@ -14,6 +14,7 @@ import AddComment from '../forms/AddComment';
 import SubMenu from '../menu/SubMenu';
 import MessageToUser from '../MessageToUser';
 import Time from './Time';
+import Popup from '../Popup';
 
 
 function Card(props) {
@@ -48,7 +49,7 @@ function Card(props) {
         if (post.user != user.id || !albumData) setMessageToUser("Vous ne pouvez pas modifier cet album")
         else {
             activePopup(true);
-            localStorage.setItem("album-id", JSON.stringify(post._id))
+            localStorage.setItem("elem-id", JSON.stringify(post._id))
             changeAction("update-album")
         }
     }
@@ -56,7 +57,7 @@ function Card(props) {
         if (post.user != user.id || !post) setMessageToUser("Vous ne pouvez pas supprimer cet album");
         else {
             activePopup(true);
-            localStorage.setItem("album-id", JSON.stringify(post._id))
+            localStorage.setItem("elem-id", JSON.stringify(post._id))
             changeAction("delete-album")
         }
     }
@@ -112,7 +113,8 @@ function Card(props) {
                 location.pathname === "/page-personelle" &&
                 <SubMenu deleteComm={deleteAlbum} updateComm={updateAlbum} />}
             {
-                isActivePopup && <PopUpFormValidation deleteComm={deleteAlbum} updateComm={updateAlbum} />
+                // isActivePopup && <PopUpFormValidation deleteComm={deleteAlbum} updateComm={updateAlbum} />
+                isActivePopup && <Popup/>
             }
             <div className={`card ${props.type}`}>
                 <div className='card-content'>

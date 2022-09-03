@@ -7,6 +7,7 @@ import { deleteAlbum } from "../../features/albumSlice";
 import MessageToUser from '../MessageToUser';
 import { deleteAccount, logout } from '../../features/usersSlice';
 import { useNavigate } from 'react-router-dom';
+import UpdateForm from './UpdateForm';
 
 
 function PopUpFormValidation(props) {
@@ -22,8 +23,8 @@ function PopUpFormValidation(props) {
     const [popupContent, setPopupContent] = useState("regular");
 
     // LOCALSTORAGE
-    const elemToDelete = JSON.parse(localStorage.getItem("comment-id"));
-    const albumToDelete = JSON.parse(localStorage.getItem("album-id"))
+    const elemToDelete = JSON.parse(localStorage.getItem("elem-id"));
+
     const userToDelete = JSON.parse(localStorage.getItem("user"));
 
     //DOM ELEMENTS CONTENT
@@ -56,31 +57,14 @@ function PopUpFormValidation(props) {
                 }, 3000);
                 break;
             case "delete-album":
-                console.log(albumToDelete);
-                dispatch(deleteAlbum(albumToDelete));
+                console.log(elemToDelete);
+                dispatch(deleteAlbum(elemToDelete));
                 setConfirmation(`l'album a été supprimé`);
                 setIsActive(true);
                 setTimeout(() => {
                     activePopup(false);
                 }, 3000);
                 break;
-            case "update-com":
-                dispatch(updateComment({ id: elemToDelete, edit: formData }));
-                setConfirmation(`Le commentaire a été modifié`);
-                setIsActive(true);
-                setTimeout(() => {
-                    activePopup(false)
-                }, 3000);
-                break;
-            case "update-album":
-                // dispatch(updateAlbum());
-                setConfirmation(`L'album a été modifié`);
-                setIsActive(true);
-                setTimeout(() => {
-                    activePopup(false)
-                }, 3000);
-                console.log(albumData.id);
-                break
             case "delete-account":
                 navigate("/");
                 dispatch(deleteAccount(userToDelete.id))
@@ -95,13 +79,7 @@ function PopUpFormValidation(props) {
                     activePopup(false)
                     localStorage.clear();
                 }, 40000);
-
-
                 break
-            default:
-                console.log("error from popup" + action);
-                activePopup(false);
-                break;
         }
     }
 
@@ -138,7 +116,7 @@ function PopUpFormValidation(props) {
 
     return (
         <dialog className='form validation-popup'>
-            <div onClick={()=> {activePopup(false)}} className="close-button">X</div>
+            <div onClick={() => { activePopup(false) }} className="close-button">X</div>
             {popupContent === "regular"
                 ? <>
                     <h1 className='validation-question'>{question}</h1>
@@ -146,8 +124,9 @@ function PopUpFormValidation(props) {
                         <form className='form' onSubmit={onSubmit}>
                             {
                                 action == "delete-com" || action == "delete-album" ? <input onChange={() => { }} className='input-invisible' value={elemToDelete} name="elemToDelete" />
-                                    : <input onChange={onChange} className='content not-implemented' value={formData} name="content" />
+                                    : <UpdateForm elemID={elemToDelete}/>
                             }
+                           
                             <button id="button-yes" className='popup-button' type='submit'>{buttonYes}</button>
                             <button id="button-no" className='popup-button' onClick={handleClick} type='button'>Non non non surtout pas !</button>
                         </form>
